@@ -10,12 +10,6 @@ on:
         type: choice
         options:
         - 12.1
-        - 11.0
-        - 10.0
-        - 9.0
-        - 8.1
-        - 7.1
-        - 6.0
       DEVICE_TREE:
         description: 'Custom Recovery Tree'
         required: true
@@ -46,7 +40,7 @@ on:
 jobs:
   build:
     name: Build OFRP by ${{ github.actor }}
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     if: github.event.repository.owner.id == github.event.sender.id
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
