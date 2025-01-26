@@ -46,7 +46,7 @@ on:
 jobs:
   build:
     name: Build OFRP by ${{ github.actor }}
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     if: github.event.repository.owner.id == github.event.sender.id
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -83,8 +83,8 @@ jobs:
       run: |
         mkdir -p ${GITHUB_WORKSPACE}/OrangeFox
         cd ${GITHUB_WORKSPACE}/OrangeFox
-        git config --global user.name "lazycodebuilder"
-        git config --global user.email "154446636+lazycodebuilder@users.noreply.github.com"
+        git config --global user.name "Serguc"
+        git config --global user.email "42298249+Serguc@users.noreply.github.com"
         git clone https://gitlab.com/OrangeFox/sync.git
         if [ ${{ inputs.MANIFEST_BRANCH }} == '11.0' ] || [ ${{ inputs.MANIFEST_BRANCH }} == '12.1' ]; then
             echo "Sync fox_${{ inputs.MANIFEST_BRANCH }} branch"
