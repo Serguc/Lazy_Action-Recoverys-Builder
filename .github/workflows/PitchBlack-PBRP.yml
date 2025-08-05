@@ -3,32 +3,33 @@ name: PitchBlack [PBRP]
 on:
   workflow_dispatch:
     inputs:
+      MANIFEST_URL:
+        description: 'MANIFEST_URL (if want to use SSH keys, use git@github.com:XXXXX)'
+        required: true
+        default: 'https://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp'
       MANIFEST_BRANCH:
-        description: 'PBRP Manifest Branch'
+        description: 'MANIFEST_BRANCH'
         required: true
-        default: ''
-        type: choice
-        options:
-        - android-12.1
-        - android-11.0
-        - android-10.0
-        - android-9.0
-        - android-8.1
-        - android-7.1
-        - android-6.0
-      DEVICE_TREE:
-        description: 'Custom Recovery Tree' # Your already made Device Tree for TWRP
+        default: 'twrp-12.1'
+      DEVICE_TREE_URL:
+        description: 'DEVICE_TREE_URL'
         required: true
-        default: 'https://github.com/Serguc/device_Blackview_MEGA_1.git'
+        default: 'https://github.com/Serguc/device_Blackview_Shark8.git'
       DEVICE_TREE_BRANCH:
-        description: 'Custom Recovery Tree Branch' # Your Device Tree Branch, make sure it's right.
+        description: 'DEVICE_TREE_BRANCH'
         required: true
         default: 'android-12.1'
-        DEVICE_PATH:
+      DEVICE_PATH:
         description: 'DEVICE_PATH'
         required: true
         default: 'device/Blackview/Shark8'
-          DEVICE_NAME:
+      COMMON_TREE_URL:
+        description: 'COMMON_TREE_URL (if no common tree, leave blank)'
+        required: false
+      COMMON_PATH:
+        description: 'COMMON_PATH (if no common tree, leave blank)'
+        required: false
+      DEVICE_NAME:
         description: 'DEVICE_NAME'
         required: true
         default: 'Shark8'
@@ -37,15 +38,14 @@ on:
         required: true
         default: 'twrp_Shark8'
       BUILD_TARGET:
-        description: 'Specify your Build Target' # Pick among boot, recovery and vendor_boot
+        description: 'BUILD_TARGET'
         required: true
-        default: ''
+        default:
         type: choice
         options:
-        - pbrp
-        - bootimage
-        - recoveryimage
-        - vendorbootimage
+        - boot
+        - recovery
+        - vendorboot
       LDCHECK:
         description: 'Use LDCHECK'
         required: false
