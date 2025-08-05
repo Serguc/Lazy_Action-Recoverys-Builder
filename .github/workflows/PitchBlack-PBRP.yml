@@ -9,6 +9,7 @@ on:
         default: ''
         type: choice
         options:
+        - android-14.1
         - android-12.1
         - android-11.0
         - android-10.0
@@ -104,8 +105,8 @@ jobs:
       run: |
         mkdir android-recovery
         cd android-recovery
-        git config --global user.name "lazycodebuilder"
-        git config --global user.email "154446636+lazycodebuilder@users.noreply.github.com"
+        git config --global user.name "Serguc"
+        git config --global user.email "Haritonov014@gmail.com"
         repo init --depth=1 -u https://github.com/PitchBlackRecoveryProject/manifest_pb.git -b ${{ inputs.MANIFEST_BRANCH }}
 
     - name: Repo Sync
